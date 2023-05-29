@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video to Text Summarization Result</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+      *,::before,::after{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+       background: url("https://images.pexels.com/photos/261763/pexels-photo-261763.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+       background-position: center;
+       background-size: cover;
+      }
+      .container{
+        height: 500px;
+        width: 60%;
+        margin:120px auto 0 auto;
+        background: linear-gradient(360deg,rgb(245, 247, 246,0.9),rgb(245, 247, 246,0.9));
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      h1{
+        text-align: center;
+        padding-top: 50px;
+        font-family: 'Sigmar', cursive;
+        font-size: 3rem;
+      }
+      p{
+        text-align: justify;
+        width: 90%;
+        margin:30px auto;
+        font-size: 1.2rem;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+    <h1>Summary:</h1>
+    <p>{{ summary }}</p>
+  </div>
+  </body>
+</html>

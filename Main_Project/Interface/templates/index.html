@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Video to Text Summarization</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+      *,::before,::after{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body{
+       background: url("https://images.pexels.com/photos/257904/pexels-photo-257904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+       background-position: center;
+       background-size: cover;
+      }
+      .container{
+        height: 500px;
+        width: 60%;
+        margin:80px auto 0 auto;
+        background: linear-gradient(360deg,rgb(245, 247, 246,0.9),rgb(245, 247, 246,0.9));
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      }
+      h1{
+        font-size: 2.5rem;
+        text-align: center;
+        padding-top: 50px;
+        font-family: 'Sigmar', cursive;
+      }
+      form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+        position: relative;
+      }
+      #upload{
+        height: 2.5rem;
+        width: 8rem;
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        z-index: 1000;
+      }
+      
+      #file{
+        display: none;
+      }
+    
+      i{
+        margin-right: 5px;
+        margin-left: 5px;
+        transition: all .5s ease;
+      }
+
+      #upload:hover i{
+        margin-right: 10px;
+      }
+
+      #btn{
+        height: 2.5rem;
+        width: 8rem;
+        background-color: rgb(242, 85, 85);
+        border-radius: 10px;
+        cursor: pointer;
+        border: none;
+        margin-left: 15px;
+        font-weight: bold;
+      
+      }
+
+      #btn:hover i{
+        margin-left: 10px;
+      }
+      
+      video { 
+      display: block;
+			max-width: 300px;
+			height: auto;
+      margin:50px auto;
+		}
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <h1>Upload a video to summarize</h1>
+    <form method="POST" action="/process" enctype="multipart/form-data">
+      <label for="file" id="upload"><i class="fa-solid fa-file-video"></i>Choose file</label>
+      <input type="file" id="file" name="file">
+      <button type="submit" id="btn">Upload<i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i></button>
+    </form>
+    <video id="videoPlayer" controls></video>
+    </div>
+    <script>
+      var fileInput = document.getElementById('file');
+      var videoPlayer = document.getElementById('videoPlayer');
+      videoPlayer.style.display="none";
+      fileInput.addEventListener('change', function() {
+        var file = fileInput.files[0];
+        var fileURL = URL.createObjectURL(file);
+        videoPlayer.src = fileURL;
+        videoPlayer.style.display="block";
+      });
+    </script>
+  </body>
+</html>
